@@ -2,13 +2,14 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 .wrapper {
-	width: 1600px;
+	max-width: 1600px;
 	margin: 0 auto;
 	box-shadow: 0px 0px 1px 1px #ddd;
 }
 .inner-wrapper {
-	width: 1200px;
+	max-width: 1200px;
 	margin: 0 auto;
+	height: 100%;
 }
 .clear {
 	clear: both;
@@ -18,12 +19,14 @@ body {
 header {
 	background: url(../img/bg-img.png);
 	background-size: cover;
-	height: 700px;
+	min-height: 700px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .logo {
 	width: 300px;
 	margin: 0px auto;
-	padding-top: 120px;
 	text-align: center;
 }
 .logo h1{
@@ -36,60 +39,57 @@ header h2 {
 	font-size: 36px;
 	color: #666;
 	text-align: center;
-	padding-top: 60px;
+	padding-top: 20px;
 }
-#features {
+.features {
 	position: relative;
-	margin-bottom: 60px;
-	height: 500px;
+	margin-bottom: 160px;
 }
-.left {
-	float: left;
-	width: 300px;
+.features-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 36rem;
 	padding-top: 60px;
-}
-.left h3 {
-	font-size: 22px;
-	font-weight: bold;
-	padding-bottom: 30px;
-}
-.left p {
-	padding-bottom: 60px;
-	font-family: helvetica, sans-serif;
-	line-height: 1.5em;
-	color: #969696;
-}
-.right {
-	float: right;
-	width: 300px;
-	padding-top: 60px;
-}
-.right h3 {
-	font-size: 22px;
-	font-weight: bold;
-	padding-bottom: 30px;
-}
-.right p {
-	padding-bottom: 60px;
-	font-family: helvetica, sans-serif;
-	line-height: 1.5em;
-	color: #969696;
-}
-#features img {
-	position: absolute;
-	top: -300px;
-	left: 600px;
 }
 
-#app {
-	height: 425px;
+.feature-group h3 {
+	font-size: 22px;
+	font-weight: bold;
+	padding-bottom: 30px;
+}
+.feature-group p {
+	padding-bottom: 60px;
+	font-family: helvetica, sans-serif;
+	line-height: 1.5em;
+	color: #969696;
+}
+.feature-group h3 {
+	font-size: 22px;
+	font-weight: bold;
+	padding-bottom: 30px;
+}
+
+.features .phone {
+	position: absolute;
+	top: 25%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.features .phone img {
+	width: 100%;
+}
+
+.app {
 	background: #e3e3e3;
 	padding: 60px 0;
 	box-sizing: border-box;
 }
+.app-container {
+	display: flex;
+	gap: 4rem;
+}
 .get-app {
-	width: 540px;
-	float: left;
+	flex: 1;
 }
 .get-app h3 {
 	font-size: 22px;
@@ -116,23 +116,26 @@ header h2 {
 .get-app i:hover {
 	opacity: 1;
 }
-#app iframe {
-	float: right;
+.app-link-box {
+	flex: 1;
+}
+.app iframe {	
 	border-radius: 10px;
+	width: 100%;
 }
 
-#blog {
+.blog {
 	text-align: center;
 }
-#blog h2 {
+.blog h2 {
 	font-size: 24px;
 	padding-top: 60px;
 }
-#blog p {
+.blog p {
 	padding-top: 30px;
 	padding-bottom: 60px;
 }
-#blog p .color {
+.blog p .color {
 	font-weight: bold;
 }
 .image {
@@ -140,20 +143,20 @@ header h2 {
 	background-size: cover;
 	height: 320px;
 }
-#social {
+.social {
 	text-align: center;
 	padding: 60px;
 }
-#social h3 {
+.social h3 {
 	font-size: 24px;
 	font-weight: bold;
 	padding-bottom: 30px;
 }
-#social p {
+.social p {
 	color: #969696;
 	padding-bottom: 30px;
 }
-#social i {
+.social i {
 	font-size: 20px;
 	color: #fff;
 	background: #000;
@@ -164,7 +167,7 @@ header h2 {
 	margin-right: 10px;
 	opacity: 0.5;
 }
-#social i:hover {
+.social i:hover {
 	opacity: 1;
 }
 
@@ -172,11 +175,13 @@ footer {
 	height: 134px;
 	background: #e3e3e3;
 }
-ul {
-	padding-top: 60px;
-	margin: 0 auto;
-	width: 660px;
+.flex-nav {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	align-items: center;
 }
+
 ul li {
 	display: inline-block;
 	padding-right: 40px;
@@ -190,4 +195,59 @@ ul li a {
 ul li a:hover {
 	text-decoration: underline;
 	color: #666;
+}
+
+@media(max-width: 1200px) {
+	.inner-wrapper {
+		padding: 0 20px;
+	}
+	
+}
+
+@media(max-width: 1179px) {
+	.inner-wrapper {
+		padding: 0 20px;
+	}
+	.features-container {
+		grid-column-gap: 20rem;
+	}
+	.features .phone {
+		width: 260px;
+		top: 10%;
+	}
+}
+
+@media(max-width: 1024px) {
+	.inner-wrapper {
+		padding: 0 20px;
+	}
+	.features-container {
+		grid-column-gap: 2rem;
+	}
+	.features .phone {
+		display: none;
+	}
+	.app-container {
+		flex-direction: column;
+	}
+	.social i {
+		margin-bottom: 10px;
+	}
+}
+
+@media(max-width: 640px) {
+	header h2 {
+		font-size: 24px;
+	}
+	.features-container {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	
+	ul li {
+		display: block;
+		margin-bottom: 1rem;
+	}
+	footer {
+		height: 234px;
+	}
 }
